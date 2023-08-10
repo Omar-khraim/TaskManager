@@ -2,10 +2,9 @@ package com.example.TaskManager.Controller;
 
 import com.example.TaskManager.Controller.DTO.UserDTO;
 import com.example.TaskManager.Service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/users")
@@ -20,5 +19,24 @@ public class UserController {
     @GetMapping("/{userId}")
     public UserDTO getUserById(@PathVariable long userId){
         return userService.getUserById(userId);
+    }
+    @GetMapping("/findall")
+    public  List<UserDTO> findAllUsers(){
+        return userService.getAllUsers();
+    }
+
+    @PostMapping("/adduser")
+    public void createNewUser(@RequestBody UserDTO user){
+        userService.createNewUser(user);
+    }
+
+    @PutMapping("/updateuser")
+    public void updateUser(@RequestBody UserDTO user){
+        userService.updateUser(user);
+    }
+
+    @DeleteMapping("/{userId}")
+    public void deleteById(@PathVariable long userId){
+        userService.deleteUserById(userId);
     }
 }
