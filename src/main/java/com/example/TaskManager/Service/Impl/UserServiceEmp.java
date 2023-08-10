@@ -62,7 +62,7 @@ public class UserServiceEmp implements UserService {
     }
 
     @Override
-    public void CreateNewUser(UserDTO user) {
+    public void createNewUser(UserDTO user) {
         userRepo.save(modelMapper.map(user , Users.class));
     }
 }
