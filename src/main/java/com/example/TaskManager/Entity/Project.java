@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(indexes = {@Index(name = "pro_name_ind", columnList = "name")})
 public class Project {
 
     @Id
@@ -35,7 +36,7 @@ public class Project {
     @ManyToOne
     private Users manager;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_project",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
