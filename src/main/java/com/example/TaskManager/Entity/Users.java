@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Entity
@@ -43,5 +44,11 @@ public class Users {
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     private LocalDateTime updated;
+
+    @OneToMany(mappedBy = "manager")
+    private List<Project> ownedProjects;
+
+    @ManyToMany(mappedBy = "workers")
+    private List<Project> workOn;
 
 }

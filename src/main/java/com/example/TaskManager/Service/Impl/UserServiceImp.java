@@ -6,7 +6,6 @@ import com.example.TaskManager.Entity.Users;
 import com.example.TaskManager.Repository.UserRepository;
 import com.example.TaskManager.Service.UserService;
 import com.example.TaskManager.Util.ListMapper;
-import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceEmp implements UserService {
+public class UserServiceImp implements UserService {
 
 
     ////// Bean Initialization /////
@@ -24,7 +23,7 @@ public class UserServiceEmp implements UserService {
 
 
     ////// Bean Injections ////////
-    public UserServiceEmp(UserRepository userRepo){
+    public UserServiceImp(UserRepository userRepo){
         this.userRepo = userRepo;
     }
 
@@ -34,7 +33,7 @@ public class UserServiceEmp implements UserService {
     }
 
     @Autowired
-    public void setListMapper(ListMapper<Users, UserDTO> listMapper){
+    public void setListMapper(ListMapper listMapper){
         this.listMapper = listMapper;
     }
 

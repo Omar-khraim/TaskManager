@@ -1,7 +1,7 @@
 package com.example.TaskManager.Service;
 
 import com.example.TaskManager.Repository.UserRepository;
-import com.example.TaskManager.Service.Impl.UserServiceEmp;
+import com.example.TaskManager.Service.Impl.UserServiceImp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +23,7 @@ public class UsersTest {
     @Mock
     ModelMapper modelMapper;
     @InjectMocks
-    UserServiceEmp userService;
+    UserServiceImp userService;
 //    ListMapper<User>
 
     @BeforeEach
