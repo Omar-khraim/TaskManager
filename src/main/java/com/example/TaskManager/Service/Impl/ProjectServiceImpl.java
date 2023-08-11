@@ -41,7 +41,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDTO findProjectById(long projectId) {
-        return modelMapper.map(projectRepo.existsById(projectId) , ProjectDTO.class);
+        return modelMapper.map(projectRepo.findById(projectId) , ProjectDTO.class);
     }
 
     @Override
@@ -55,12 +55,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void createProject(ProjectDTO project) {
-        projectRepo.save(modelMapper.map(project, Project.class));
+    public void createProject(Project project) {
+        projectRepo.save(project);
     }
 
     @Override
-    public void updateProject(ProjectDTO project) {
-        projectRepo.save(modelMapper.map(project, Project.class));
+    public void updateProject(Project project) {
+        projectRepo.save(project);
     }
 }

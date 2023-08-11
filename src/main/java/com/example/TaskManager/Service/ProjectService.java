@@ -10,6 +10,6 @@ public interface ProjectService {
     ProjectDTO findProjectById(long projectId);
     List<ProjectDTO> findAllProjects();
     void deleteProjectById(long projectId);
-    void createProject(ProjectDTO project);
-    void updateProject(ProjectDTO project);
+    void createProject(Project project);
+    void updateProject(Project project);
 }
