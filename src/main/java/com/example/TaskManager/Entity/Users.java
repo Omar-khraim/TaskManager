@@ -45,10 +45,10 @@ public class Users {
     @UpdateTimestamp
     private LocalDateTime updated;
 
-    @OneToMany(mappedBy = "manager")
+    @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
     private List<Project> ownedProjects;
 
-    @ManyToMany(mappedBy = "workers")
+    @ManyToMany(mappedBy = "workers", fetch = FetchType.LAZY)
     private List<Project> workOn;
 
 }
