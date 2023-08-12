@@ -1,2 +1,31 @@
-package com.example.TaskManager.Entity;public class Task {
+package com.example.TaskManager.Entity;
+
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long Id;
+
+    private String name;
+    private String description;
+    private Date dueDate;
+    private short estimationTime;
+
+    @OneToOne
+    private Users assignedTo;
+
+    @OneToOne
+    private Project project;
 }
