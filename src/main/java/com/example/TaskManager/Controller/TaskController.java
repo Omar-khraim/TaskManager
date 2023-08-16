@@ -33,12 +33,12 @@ public class TaskController {
         taskService.deleteById(taskId);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public void createNew(@RequestBody Task task){
         taskService.createNew(task);
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public void update(@RequestBody Task task){
         taskService.update(task);
     }

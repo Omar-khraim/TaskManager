@@ -28,12 +28,12 @@ public class ProjectController {
         return projectService.findAllProjects();
     }
 
-    @PostMapping("/addNew")
+    @PostMapping
     public void createProject(@RequestBody Project project){
         projectService.createProject(project);
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public void updateProject(@RequestBody Project project){
         projectService.createProject(project);
     }
