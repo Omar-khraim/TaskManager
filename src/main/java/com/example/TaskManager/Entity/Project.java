@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(indexes = {@Index(name = "pro_name_ind", columnList = "name")})
+@Table(indexes = {@Index(name = "proj_name_ind", columnList = "name")})
 public class Project {
 
     @Id

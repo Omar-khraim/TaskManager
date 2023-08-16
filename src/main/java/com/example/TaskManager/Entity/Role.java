@@ -1,31 +1,27 @@
 package com.example.TaskManager.Entity;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Task {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private int Id;
 
-    private String name;
-    private String description;
-    private Date dueDate;
-    private byte estimationTime;
+    private String title;
 
-    @OneToOne
-    private Users assignedTo;
-
-    @OneToOne
-    private Project project;
+    @ManyToMany
+    @JsonBackReference
+    private List<Users> users;
 }

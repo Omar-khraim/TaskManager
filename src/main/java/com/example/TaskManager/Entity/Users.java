@@ -1,11 +1,14 @@
 package com.example.TaskManager.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -51,4 +54,9 @@ public class Users {
     @ManyToMany(mappedBy = "workers", fetch = FetchType.LAZY)
     private List<Project> workOn;
 
+    private byte status;
+
+    @JsonManagedReference
+    @ManyToMany(mappedBy = "users")
+    private List<Role> roles;
 }
