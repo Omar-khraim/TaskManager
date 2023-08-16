@@ -1,6 +1,7 @@
 package com.example.TaskManager.Controller;
 
 import com.example.TaskManager.Controller.DTO.UserDTO;
+import com.example.TaskManager.Controller.DTO.UserSignUpDTO;
 import com.example.TaskManager.Service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +26,12 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/adduser")
-    public void createNewUser(@RequestBody UserDTO user){
+    @PostMapping
+    public void createNewUser(@RequestBody UserSignUpDTO user){
         userService.createNewUser(user);
     }
 
-    @PutMapping("/updateuser")
+    @PutMapping
     public void updateUser(@RequestBody UserDTO user){
         userService.updateUser(user);
     }
