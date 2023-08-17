@@ -54,6 +54,9 @@ public class Users {
     @ManyToMany(mappedBy = "workers", fetch = FetchType.LAZY)
     private List<Project> workOn;
 
+    @OneToOne(mappedBy = "user")
+    private Task task;
+
     private byte status;
 
     @JsonManagedReference
