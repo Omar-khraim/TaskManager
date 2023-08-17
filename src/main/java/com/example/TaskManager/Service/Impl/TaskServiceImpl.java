@@ -40,7 +40,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<TaskDTO> findAll() {
-        return listMapper.MapList(TaskDTO.class, taskRepo.findAll());
+        return listMapper.mapList( taskRepo.findAll(),new TaskDTO());
     }
 
     @Override
@@ -56,5 +56,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void update(Task task) {
         taskRepo.save(task);
+    }
+
+    @Override
+    public List<TaskDTO> fndUserTasks(long userId) {
+        return listMapper.mapList(taskRepo.findByUser_Id(userId), new TaskDTO());
+//        return (List<TaskDTO>) modelMapper.map(taskRepo.findByUser_Id(userId),TaskDTO.class);
     }
 }

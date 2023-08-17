@@ -8,14 +8,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class ListMapper <T,U>{
+public class ListMapper <T,E>{
 
-    @Autowired
-    private ModelMapper modelMapper;
 
-    public List<?> MapList(T type, List<U> list){
+    private final ModelMapper modelMapper;
+
+    public ListMapper(ModelMapper modelMapper){
+        this.modelMapper = modelMapper;
+    }
+
+    public List<?> mapList(List<T> list,E convertTo ){
         return list.stream()
-                .map(x-> modelMapper.map(x, type.getClass()))
+                .map(x-> modelMapper.map(x, convertTo.getClass()))
                 .collect(Collectors.toList());
     }
 }

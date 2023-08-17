@@ -3,6 +3,7 @@ package com.example.TaskManager.Service;
 
 import com.example.TaskManager.Controller.DTO.UserDTO;
 import com.example.TaskManager.Controller.DTO.UserSignUpDTO;
+import com.example.TaskManager.Entity.Task;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface UserService {
 
     void updateUser(UserDTO user);
 
-    void deleteUserById(long userId);
+    boolean deleteUserById(long userId);
 
     void createNewUser(UserSignUpDTO user);
 

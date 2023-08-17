@@ -17,7 +17,7 @@ public class TaskDTO {
     private String description;
     private Date dueDate;
     private short estimationTime;
-    private long assignedTo;
-    private long project;
+    private UserDTO assignedTo;
+    private ProjectDTO project;
 
 }

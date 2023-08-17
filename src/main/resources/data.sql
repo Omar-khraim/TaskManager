@@ -27,3 +27,6 @@ insert into role_users (roles_id, users_id)
 values (2,2);
 insert into role_users (roles_id, users_id)
 values (3,3);
+
+insert into task (estimation_time, user_id, due_date, project_id, description, name)
+values (1,1,current_date, 1,'Test Task', 'task one');
