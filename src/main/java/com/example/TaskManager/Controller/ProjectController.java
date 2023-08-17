@@ -23,7 +23,7 @@ public class ProjectController {
         return projectService.findProjectById(projectId);
     }
 
-    @GetMapping("/findall")
+    @GetMapping
     public List<ProjectDTO> getAllProjects(){
         return projectService.findAllProjects();
     }

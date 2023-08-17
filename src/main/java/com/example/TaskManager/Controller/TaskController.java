@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/tasks")
 public class TaskController {
 
@@ -43,3 +44,4 @@ public class TaskController {
         taskService.update(task);
     }
 }
+

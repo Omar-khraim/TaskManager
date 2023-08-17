@@ -12,5 +12,6 @@ public interface TaskService {
     void deleteById(long taskId);
     void createNew(Task task);
     void update(Task task);
+    List<TaskDTO> fndUserTasks(long userId);
 
 }
