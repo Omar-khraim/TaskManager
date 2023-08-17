@@ -46,7 +46,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<ProjectDTO> findAllProjects() {
-        return listMapper.MapList(ProjectDTO.class,projectRepo.findAll());
+        return listMapper.mapList(projectRepo.findAll(),new ProjectDTO());
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.example.TaskManager.Service.Impl;
 
 import com.example.TaskManager.Controller.DTO.UserDTO;
 import com.example.TaskManager.Controller.DTO.UserSignUpDTO;
+import com.example.TaskManager.Entity.Task;
 import com.example.TaskManager.Entity.Users;
 import com.example.TaskManager.Repository.ProjectRepository;
 import com.example.TaskManager.Repository.UserRepository;
@@ -63,7 +64,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public List<UserDTO> getAllUsers() {
-        return listMapper.MapList(UserDTO.class, userRepo.findAll());
+        return listMapper.mapList( userRepo.findAll(),new UserDTO());
     }
 
     @Override
@@ -72,9 +73,12 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void deleteUserById(long userId) {
+    public boolean deleteUserById(long userId) {
         if (!manageProjects(userId))
             userRepo.deleteById(userId);
+        else
+            return false;
+        return  true;
 
     }
 
