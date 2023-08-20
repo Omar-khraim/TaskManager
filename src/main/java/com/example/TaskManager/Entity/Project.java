@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -29,10 +30,10 @@ public class Project {
     private String description;
 
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private LocalDate startDate;
 
     @Temporal(TemporalType.DATE)
-    private Date endDate;
+    private LocalDate endDate;
 
     @ManyToOne
     private Users manager;
