@@ -3,7 +3,6 @@ package com.example.TaskManager.Service.Impl;
 
 import com.example.TaskManager.Controller.DTO.UserDTO;
 import com.example.TaskManager.Controller.DTO.UserSignUpDTO;
-import com.example.TaskManager.Entity.Task;
 import com.example.TaskManager.Entity.Users;
 import com.example.TaskManager.Repository.ProjectRepository;
 import com.example.TaskManager.Repository.UserRepository;
@@ -21,12 +20,12 @@ public class UserServiceImp implements UserService {
 
 
     ////// Bean Initialization /////
-    private ModelMapper modelMapper;
-    private ListMapper listMapper;
+    private  ModelMapper modelMapper;
+    private   ListMapper listMapper;
 
     //    private  PasswordEncoder passwordEncoder;
     private final UserRepository userRepo;
-    private ProjectRepository projRepo;
+    private  ProjectRepository projRepo;
 
 
     ////// Bean Injections ////////
