@@ -11,9 +11,14 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -112,7 +117,13 @@ class UserServiceImpTest {
 
 
     @Test
-    void findAllUsers(){
-        
+    void userRepo_findAllUsers_success(){
+        List<Users> users = Mockito.mock(List.class);
+
+        when(userRepo.findAll()).thenReturn(users);
+
+        List<UserDTO> returnedUsers = userService.getAllUsers();
+
+        assertThat(returnedUsers).isNotNull();
     }
 }
