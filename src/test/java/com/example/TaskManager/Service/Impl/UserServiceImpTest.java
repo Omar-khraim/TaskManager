@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -125,5 +126,24 @@ class UserServiceImpTest {
         List<UserDTO> returnedUsers = userService.getAllUsers();
 
         assertThat(returnedUsers).isNotNull();
+    }
+
+    @Test
+    void userService_deleteById(){
+
+        long userId = 1L;
+
+        Users user = Users.builder()
+                .Id(userId)
+                .firstName("test")
+                .lastName("test")
+                .password("1255")
+                .email("testforUNitTest")
+                .status((byte) 1)
+                .build();
+
+//        when(userRepo.save(Mockito.any(Users.class))).thenReturn(user);
+
+        assertAll(()-> userService.deleteUserById(userId));
     }
 }
