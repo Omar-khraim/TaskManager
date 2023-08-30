@@ -1,8 +1,7 @@
 package com.example.TaskManager.Repository;
 
-import com.example.TaskManager.Entity.Users;
+import com.example.TaskManager.Entity.User;
 import com.example.TaskManager.Repository.UserRepository;
-import org.apache.catalina.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class UsersTest {
     @Test
     public void itHasUserThatExistsByEmail() {
         //Given
-        Users user = Users.builder()
+        User user = User.builder()
                 .firstName("Omar")
                 .lastName("Khraim")
                 .email("omarKhraim@gmial.com")
@@ -36,7 +35,7 @@ public class UsersTest {
         userRepo.save(user);
 
         // When
-        Users fetchedUser = userRepo.findUsersByEmail(user.getEmail());
+        User fetchedUser = userRepo.findUsersByEmail(user.getEmail());
 
         // Then
         assertThat(fetchedUser).isNotNull();
@@ -48,7 +47,7 @@ public class UsersTest {
        String email = "OmarKhraim33@gmail.com";
 
         // When
-        Users fetchedUser = userRepo.findUsersByEmail(email);
+        User fetchedUser = userRepo.findUsersByEmail(email);
 
         // Then
         assertThat(fetchedUser).isNull();

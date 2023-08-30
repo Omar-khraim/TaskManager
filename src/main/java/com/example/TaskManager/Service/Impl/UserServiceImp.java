@@ -3,7 +3,7 @@ package com.example.TaskManager.Service.Impl;
 
 import com.example.TaskManager.Controller.DTO.UserDTO;
 import com.example.TaskManager.Controller.DTO.UserSignUpDTO;
-import com.example.TaskManager.Entity.Users;
+import com.example.TaskManager.Entity.User;
 import com.example.TaskManager.Repository.ProjectRepository;
 import com.example.TaskManager.Repository.UserRepository;
 import com.example.TaskManager.Service.UserService;
@@ -68,7 +68,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void updateUser(UserDTO user) {
-        userRepo.save(modelMapper.map(user, Users.class));
+        userRepo.save(modelMapper.map(user, User.class));
     }
 
     @Override
@@ -83,7 +83,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void createNewUser(UserSignUpDTO user) {
-        userRepo.save(modelMapper.map(user, Users.class));
+        userRepo.save(modelMapper.map(user, User.class));
 //
 //        Users newUser = Users.builder()
 //                .lastName(user.getFirstName())

@@ -1,7 +1,7 @@
 package com.example.TaskManager.Repository;
 
 import com.example.TaskManager.Entity.Project;
-import com.example.TaskManager.Entity.Users;
+import com.example.TaskManager.Entity.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class ProjectRepoTest {
     void itShouldFindProjectByManagerID(){
         //Given
 
-        Users manager = Users.builder()
+        User manager = User.builder()
                 .firstName("Omar")
                 .lastName("Khraim")
                 .email("omarKhraim33@gmial.com")

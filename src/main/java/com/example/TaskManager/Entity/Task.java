@@ -27,7 +27,7 @@ public class Task {
     private byte estimationTime;
 
     @ManyToOne
-    private Users user;
+    private User user;
 
     @ManyToOne
     private Project project;

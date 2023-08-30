@@ -1,6 +1,6 @@
 package com.example.TaskManager.Service.Impl;
 
-import com.example.TaskManager.Entity.Users;
+import com.example.TaskManager.Entity.User;
 import com.example.TaskManager.Repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +24,7 @@ public class SecUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Users user = userRepo.findUsersByEmail(email);
+        User user = userRepo.findUsersByEmail(email);
         UserDetails userDetails = new SecUserDetails(user);
 
         return userDetails;

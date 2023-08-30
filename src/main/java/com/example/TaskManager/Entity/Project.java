@@ -36,13 +36,13 @@ public class Project {
     private LocalDate endDate;
 
     @ManyToOne
-    private Users manager;
+    private User manager;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_project",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
-    private List<Users> workers;
+    private List<User> workers;
 
     @OneToMany(mappedBy = "project")
     @Cascade(org.hibernate.annotations.CascadeType.DELETE_ORPHAN)

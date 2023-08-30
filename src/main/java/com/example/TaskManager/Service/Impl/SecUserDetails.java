@@ -1,7 +1,7 @@
 package com.example.TaskManager.Service.Impl;
 
 import com.example.TaskManager.Entity.Role;
-import com.example.TaskManager.Entity.Users;
+import com.example.TaskManager.Entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +18,7 @@ public class SecUserDetails implements UserDetails {
     String password;
     List<Role> roles;
 
-    SecUserDetails(Users user){
+    SecUserDetails(User user){
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.roles = user.getRoles();

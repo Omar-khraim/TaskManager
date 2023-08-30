@@ -23,5 +23,5 @@ public class Role {
 
     @ManyToMany
     @JsonBackReference
-    private List<Users> users;
+    private List<User> users;
 }

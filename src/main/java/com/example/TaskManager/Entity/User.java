@@ -20,7 +20,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users {
+@Table(name = "Users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
